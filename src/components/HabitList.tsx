@@ -1,4 +1,5 @@
-import { useHabits, type Habit } from "../context/HabitProvider";
+import { useHabits } from "../context/HabitContext";
+import {type Habit} from "../context/HabitContext"
 import { Button } from "./button";
 import { eachDayOfInterval,
      startOfWeek,

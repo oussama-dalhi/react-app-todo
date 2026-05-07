@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { Button } from "./button";
-import { useHabits } from "../context/HabitProvider"
+import { useHabits } from "../context/HabitContext"
 
 export function HabitForm() {
     const [name, setName] = useState("");
