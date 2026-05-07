@@ -1,17 +1,28 @@
-# React Todo App
+# Habit Tracker
 
-A simple React Todo/Habit Tracker app built while learning modern React and TypeScript.
+A clean and modern habit tracking app built with React and TypeScript.  
+Track your daily habits, build streaks, and stay consistent with a simple weekly overview.
 
-## What I Practiced
+---
 
-- React components
-- Props and state
-- TypeScript basics
-- Context API
-- Component structure
-- Tailwind CSS styling
-- Vite project setup
+## Preview
 
+![alt text](image.png)
+
+---
+
+## Features
+
+- Add new habits
+- Delete habits
+- Track daily completions
+- Weekly habit overview
+- Streak counter 🔥
+- Clean dark UI
+- Responsive layout
+- Built with reusable React components
+
+---
 
 ## Tech Stack
 
@@ -20,9 +31,18 @@ A simple React Todo/Habit Tracker app built while learning modern React and Type
 - Vite
 - Tailwind CSS
 
-## Run Locally
+---
 
-```bash
-npm install
-npm run dev
-```
+## What I Practiced
+
+This project helped me practice:
+
+- React component structure
+- Props and state management
+- Context API
+- TypeScript types
+- Reusable UI components
+- Tailwind styling
+- Project organization
+
+---
