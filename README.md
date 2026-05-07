@@ -6,7 +6,6 @@ Track your daily habits, build streaks, and stay consistent with a simple weekly
 ---
 
 ## Preview
-
 ![alt text](image.png)
 
 ---
