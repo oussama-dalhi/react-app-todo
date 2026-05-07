@@ -1,55 +1,55 @@
 import {
-  useState,
   type ReactNode,
 } from "react";
 import { isSameDay } from "date-fns"
 import {type Habit, HabitContext} from "./HabitContext"
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 type HabitProviderProps = {
   children: ReactNode;
 };
 
 export function HabitProvider({ children }: HabitProviderProps) {
-  const [habits, setHabits] = useState<Habit[]>([]);
-  
-function addHabit(name: string) {
-    setHabits((curr) => [
-      ...curr,
-      {
-        id: crypto.randomUUID(),
-        name,
-        completions: [],
-      },
-    ]);
-  }
+        const [habits, setHabits] = useLocalStorage<Habit[]>("Habit", []);
 
-  function deleteHabit(id: string) {
-    setHabits((curr) => curr.filter((h) => h.id !== id));
-  }
+        function addHabit(name: string) {
+            setHabits((curr) => [
+            ...curr,
+            {
+            id: crypto.randomUUID(),
+            name,
+            completions: [],
+            },
+            ]);
+        }
 
-  function toggleHabit(id: string, date: Date) {
-    setHabits((curr) =>
-      curr.map((h) => {
-        if (h.id !== id) return h;
+        function deleteHabit(id: string) {
+            setHabits((curr) => curr.filter((h) => h.id !== id));
+        }
 
-        const alreadyDone = h.completions.some((c) =>
-          isSameDay(c, date)
-        );
+        function toggleHabit(id: string, date: Date) {
+            setHabits((curr) =>
+            curr.map((h) => {
+            if (h.id !== id) return h;
 
-        const completions = alreadyDone
-          ? h.completions.filter((c) => !isSameDay(c, date))
-          : [...h.completions, date];
+            const alreadyDone = h.completions.some((c) =>
+            isSameDay(c, date)
+            );
 
-        return { ...h, completions };
-      })
-    );
-  }
+            const completions = alreadyDone
+            ? h.completions.filter((c) => !isSameDay(c, date))
+            : [...h.completions, date];
 
-  return (
+            return { ...h, completions };
+            })
+            );
+        }
+
+    return (
     <HabitContext.Provider
-      value={{ habits, addHabit, toggleHabit, deleteHabit }}
+    value={{ habits, addHabit, toggleHabit, deleteHabit }}
     >
-      {children}
+    {children}
     </HabitContext.Provider>
-  );
+    );
 }
